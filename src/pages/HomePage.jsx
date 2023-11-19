@@ -1,13 +1,14 @@
-import { Loading, Input } from "react-daisyui";
 import ProductList from "../components/products/ProductList";
 import { useFetch } from "../hooks/useFetch";
+import ProductFilter from "../components/products/ProductFilter";
+import LoadingIndicator from "../components/layout/LoadingIndicator";
 import { BASE_URL } from "../constants/api";
 
 export default function HomePage() {
 	const { data: products, isLoading, error } = useFetch(BASE_URL);
 
 	if (isLoading) {
-		return <Loading />;
+		return <LoadingIndicator />;
 	}
 
 	if (error) {
@@ -19,11 +20,9 @@ export default function HomePage() {
 	}
 
 	return (
-		<div className="container mx-auto">
-			<div className="flex w-full component-preview p-4 items-center justify-center gap-2 font-sans">
-				<Input className="w-full max-w-xs" />
-			</div>
+		<>
+			<ProductFilter products={products} />
 			<ProductList products={products} />
-		</div>
+		</>
 	);
 }
