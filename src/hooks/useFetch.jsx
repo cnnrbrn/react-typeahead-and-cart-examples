@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const useFetch = (url, deps = []) => {
+export const useFetch = (url) => {
 	const [data, setData] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState(null);
@@ -25,8 +25,7 @@ export const useFetch = (url, deps = []) => {
 		};
 
 		fetchData();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [url, ...deps]);
+	}, [url]);
 
 	return { data, isLoading, error };
 };
