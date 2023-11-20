@@ -1,12 +1,12 @@
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
-const cartState = () => ({
+const state = () => ({
 	items: [],
 	totalItems: 0,
 });
 
-const cartActions = (set) => ({
+const actions = (set) => ({
 	addItem: (item, quantity = 1) =>
 		set((state) => {
 			const existingItemIndex = state.items.findIndex((i) => i.id === item.id);
@@ -52,8 +52,8 @@ const useCartStore = create(
 	devtools(
 		persist(
 			(set) => ({
-				...cartState(),
-				...cartActions(set),
+				...state(),
+				...actions(set),
 			}),
 			{
 				name: "cart",
@@ -82,12 +82,11 @@ export const useTotalItems = () => {
 };
 
 export const useCartActions = () => {
-	const { addItem, removeItem, clearCart } = useCartStore((state) => ({
+	return useCartStore((state) => ({
 		addItem: state.addItem,
 		removeItem: state.removeItem,
 		clearCart: state.clearCart,
 	}));
-	return { addItem, removeItem, clearCart };
 };
 
 export default useCartStore;

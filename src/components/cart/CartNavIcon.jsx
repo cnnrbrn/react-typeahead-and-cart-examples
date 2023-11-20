@@ -5,11 +5,11 @@ function CartNavIcon() {
 	const totalItems = useTotalItems();
 
 	return (
-		<div class="flex justify-center items-center">
-			<div class="relative">
+		<div className="flex justify-center items-center">
+			<div className="relative">
 				{totalItems > 0 ? (
-					<div class="-top-4 absolute left-3">
-						<p class="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">{totalItems}</p>
+					<div className="-top-4 absolute left-3">
+						<p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">{totalItems}</p>
 					</div>
 				) : null}
 				<CartIcon />

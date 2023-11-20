@@ -21,7 +21,7 @@ export default AddToCartButton;
 
 AddToCartButton.propTypes = {
 	product: PropTypes.shape({
-		id: PropTypes.number.isRequired,
+		id: PropTypes.string.isRequired,
 		title: PropTypes.string.isRequired,
 		imageUrl: PropTypes.string.isRequired,
 		description: PropTypes.string.isRequired,

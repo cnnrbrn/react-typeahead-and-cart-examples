@@ -32,7 +32,11 @@ function ProductFilter({ products }) {
 				</ul>
 			) : (
 				<ul className="absolute z-10 w-full left-0 right-0">
-					{filteredProducts.length === 0 && searchTerm !== "" ? <li>No products found</li> : ""}
+					{filteredProducts.length === 0 && searchTerm !== "" ? (
+						<li className="border-b-2 border-slate-800 bg-slate-900 p-4">No products found</li>
+					) : (
+						""
+					)}
 				</ul>
 			)}
 		</div>
