@@ -7,7 +7,7 @@ function AddToCartButton({ product }) {
 	const { addItem } = useCartActions();
 
 	const handleAddToCart = () => {
-		addItem(product, 1);
+		addItem(product);
 	};
 
 	return (

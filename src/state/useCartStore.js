@@ -88,5 +88,3 @@ export const useCartActions = () => {
 		clearCart: state.clearCart,
 	}));
 };
-
-export default useCartStore;
