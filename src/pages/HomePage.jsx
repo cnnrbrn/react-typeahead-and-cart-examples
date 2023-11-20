@@ -21,6 +21,7 @@ export default function HomePage() {
 
 	return (
 		<>
+			<h1 className="text-2xl font-bold mb-4 text-center">Products</h1>
 			<ProductFilter products={products} />
 			<ProductList products={products} />
 		</>

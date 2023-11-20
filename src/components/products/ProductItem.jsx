@@ -1,15 +1,20 @@
 import { Card } from "react-daisyui";
 import PropTypes from "prop-types";
+import AddToCartButton from "../cart/AddToCartButton";
 
-function ProductItem({ title, imageUrl, description }) {
+function ProductItem({ product }) {
+	const { imageUrl, title, description, price } = product;
+
 	return (
-		<Card imageFull className="flex-auto">
+		<Card imageFull className="flex-auto relative">
+			<AddToCartButton product={product} />
 			<Card.Image src={imageUrl} alt={title} />
 			<Card.Body>
 				<Card.Title tag="h2" className="text-white">
 					{title}
 				</Card.Title>
 				<p className="text-white">{description}</p>
+				<p className="text-white">{price}</p>
 			</Card.Body>
 		</Card>
 	);
@@ -18,7 +23,11 @@ function ProductItem({ title, imageUrl, description }) {
 export default ProductItem;
 
 ProductItem.propTypes = {
-	title: PropTypes.string.isRequired,
-	imageUrl: PropTypes.string.isRequired,
-	description: PropTypes.string.isRequired,
+	product: PropTypes.shape({
+		id: PropTypes.string.isRequired,
+		title: PropTypes.string.isRequired,
+		imageUrl: PropTypes.string.isRequired,
+		description: PropTypes.string.isRequired,
+		price: PropTypes.number.isRequired,
+	}).isRequired,
 };

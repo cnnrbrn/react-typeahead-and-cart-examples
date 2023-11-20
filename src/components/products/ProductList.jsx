@@ -5,10 +5,10 @@ function ProductList({ products = [] }) {
 	return (
 		<div className="grid auto-rows-fr grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-4">
 			{products.map((product) => {
-				const { id, title, imageUrl, description } = product;
+				const { id } = product;
 				return (
 					<div key={id} className="flex flex-col">
-						<ProductItem title={title} imageUrl={imageUrl} description={description} />
+						<ProductItem product={product} />
 					</div>
 				);
 			})}
@@ -23,6 +23,7 @@ ProductList.propTypes = {
 			title: PropTypes.string.isRequired,
 			imageUrl: PropTypes.string.isRequired,
 			description: PropTypes.string.isRequired,
+			price: PropTypes.number.isRequired,
 		})
 	),
 };

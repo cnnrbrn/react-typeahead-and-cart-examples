@@ -1,5 +1,6 @@
 import { Button, Menu, Navbar } from "react-daisyui";
 import { Link, NavLink, Outlet } from "react-router-dom";
+import CartNavIcon from "../cart/CartNavIcon";
 
 function Layout() {
 	return (
@@ -14,6 +15,11 @@ function Layout() {
 					<Menu horizontal={true} className="px-1">
 						<Menu.Item>
 							<NavLink to="/">Home</NavLink>
+						</Menu.Item>
+						<Menu.Item>
+							<NavLink to="/cart">
+								<CartNavIcon />
+							</NavLink>
 						</Menu.Item>
 					</Menu>
 				</div>
